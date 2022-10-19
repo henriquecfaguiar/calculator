@@ -1,3 +1,21 @@
+const numbers = document.querySelectorAll(".number");
+const displayText = document.querySelector(".display__text");
+const clearBtn = document.querySelector(".clear");
+
+clearBtn.addEventListener("click", () => {
+  displayText.textContent = "";
+});
+
+numbers.forEach(number => {
+  number.addEventListener("click", addToDisplay)
+});
+
+function addToDisplay(e) {
+  displayText.textContent += e.target.textContent;
+  const currentDisplayText = displayText.textContent;
+  console.log(currentDisplayText);
+};
+
 function add(a, b) {
   return a + b;
 };
