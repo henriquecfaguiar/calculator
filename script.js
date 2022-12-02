@@ -1,9 +1,14 @@
 const numbers = document.querySelectorAll(".number");
 const displayText = document.querySelector(".display__text");
 const clearBtn = document.querySelector(".clear");
+const operators = document.querySelectorAll(".operator");
+const equalBtn = document.querySelector(".equal");
 
-clearBtn.addEventListener("click", () => {
-  displayText.textContent = "";
+clearBtn.addEventListener("click", clearDisplay);
+equalBtn.addEventListener("click", returnResult);
+
+operators.forEach(operator => {
+  operator.addEventListener("click", getFirstValue);
 });
 
 numbers.forEach(number => {
@@ -12,8 +17,18 @@ numbers.forEach(number => {
 
 function addToDisplay(e) {
   displayText.textContent += e.target.textContent;
-  const currentDisplayText = displayText.textContent;
-  console.log(currentDisplayText);
+};
+
+function clearDisplay() {
+  displayText.textContent = "";
+};
+
+function getFirstValue() {
+  const firstValue = Number(displayText.textContent);
+};
+
+function returnResult() {
+
 };
 
 function add(a, b) {
