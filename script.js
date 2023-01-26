@@ -1,63 +1,46 @@
-const numbers = document.querySelectorAll(".number");
-const displayText = document.querySelector(".display__text");
+class Calculator {
+  constructor(displayPrevious, displayCurrent) {
+    this.displayPrevious = displayPrevious;
+    this.displayCurrent = displayCurrent;
+    this.clear();
+  }
+
+  clear() {
+    this.currentOperand = "";
+    this.previousOperand = "";
+    this.operation = undefined;
+  }
+
+  delete() {
+
+  }
+
+  appendText(number) {
+    this.currentOperand = number;
+  }
+
+  updateDisplay() {
+    this.displayCurrent.textContent = this.currentOperand;
+  }
+
+}
+
+
+
+
+const numberBtns = document.querySelectorAll(".number");
+const displayCurrent = document.querySelector(".display__current");
+const displayPrevious = document.querySelector(".display__previous");
 const clearBtn = document.querySelector(".clear");
 const operators = document.querySelectorAll(".operator");
 const equalBtn = document.querySelector(".equal");
+const deleteBtn = document.querySelector(".delete");
 
-clearBtn.addEventListener("click", clearDisplay);
-equalBtn.addEventListener("click", returnResult);
+const calculator = new Calculator(displayPrevious, displayCurrent);
 
-operators.forEach(operator => {
-  operator.addEventListener("click", getFirstValue);
-});
-
-numbers.forEach(number => {
-  number.addEventListener("click", addToDisplay)
-});
-
-function addToDisplay(e) {
-  displayText.textContent += e.target.textContent;
-};
-
-function clearDisplay() {
-  displayText.textContent = "";
-};
-
-function getFirstValue() {
-  const firstValue = Number(displayText.textContent);
-};
-
-function returnResult() {
-
-};
-
-function add(a, b) {
-  return a + b;
-};
-
-function subtract(a, b) {
-  return a - b;
-};
-
-function multiply(a, b) {
-  return a * b;
-};
-
-function divide(a, b) {
-  return a / b;
-};
-
-function operate(operator, a, b) {
-  switch (operator) {
-    case "+":
-      return add(a, b);
-    case "-":
-      return subtract(a, b);
-    case "*":
-      return multiply(a, b);
-    case "/":
-      return divide(a, b);
-    default:
-      return "You must choose a valid operator";
-  }
-};
+Array.from(numberBtns).forEach(button => {
+  button.addEventListener("click", () => {
+    calculator.appendText(button.textContent);
+    calculator.updateDisplay();
+  });
+})
