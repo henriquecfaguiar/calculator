@@ -12,11 +12,14 @@ class Calculator {
   }
 
   delete() {
-
+    this.currentOperand = this.currentOperand.toString().slice(0, -1);
   }
 
   appendText(number) {
-    this.currentOperand = number;
+    if (this.currentOperand.includes(".") && number === ".") {
+      return;
+    }
+    this.currentOperand += number.toString();
   }
 
   updateDisplay() {
@@ -32,15 +35,32 @@ const numberBtns = document.querySelectorAll(".number");
 const displayCurrent = document.querySelector(".display__current");
 const displayPrevious = document.querySelector(".display__previous");
 const clearBtn = document.querySelector(".clear");
-const operators = document.querySelectorAll(".operator");
+const operatorBtns = document.querySelectorAll(".operator");
 const equalBtn = document.querySelector(".equal");
 const deleteBtn = document.querySelector(".delete");
 
 const calculator = new Calculator(displayPrevious, displayCurrent);
 
-Array.from(numberBtns).forEach(button => {
+numberBtns.forEach(button => {
   button.addEventListener("click", () => {
     calculator.appendText(button.textContent);
     calculator.updateDisplay();
   });
+})
+
+operatorBtns.forEach(button => {
+  button.addEventListener("click", () => {
+    calculator.appendText(button.textContent);
+    calculator.updateDisplay();
+  });
+})
+
+clearBtn.addEventListener("click", () => {
+  calculator.clear();
+  calculator.updateDisplay();
+})
+
+deleteBtn.addEventListener("click", () => {
+  calculator.delete();
+  calculator.updateDisplay();
 })
