@@ -16,20 +16,52 @@ class Calculator {
   }
 
   appendText(number) {
-    if (this.currentOperand.includes(".") && number === ".") {
+    if (this.currentOperand.toString().includes(".") && number === ".") {
       return;
     }
     this.currentOperand += number.toString();
   }
 
+  defineOperator(operator) {
+    if (this.currentOperand === "") return;
+    if (this.previousOperand !== "") {
+      this.operate();
+    }
+    this.operation = operator;
+    this.previousOperand = this.currentOperand + operator;
+    this.currentOperand = "";
+  }
+
   updateDisplay() {
     this.displayCurrent.textContent = this.currentOperand;
+    this.displayPrevious.textContent = this.previousOperand;
+  }
+
+  operate() {
+    if (this.currentOperand === "") return;
+    switch (this.operation) {
+      case "+":
+        this.currentOperand = +this.previousOperand.toString().split("+")[0] + +this.currentOperand;
+        this.previousOperand = "";
+        break;
+      case "-":
+        this.currentOperand = +this.previousOperand.toString().split("-")[0] - +this.currentOperand;
+        this.previousOperand = "";
+        break;
+      case "*":
+        this.currentOperand = +this.previousOperand.toString().split("*")[0] * +this.currentOperand;
+        this.previousOperand = "";
+        break;
+      case "÷":
+        this.currentOperand = +this.previousOperand.toString().split("÷")[0] / +this.currentOperand;
+        this.previousOperand = "";
+        break;
+      default:
+        return;
+    }
   }
 
 }
-
-
-
 
 const numberBtns = document.querySelectorAll(".number");
 const displayCurrent = document.querySelector(".display__current");
@@ -50,9 +82,14 @@ numberBtns.forEach(button => {
 
 operatorBtns.forEach(button => {
   button.addEventListener("click", () => {
-    calculator.appendText(button.textContent);
+    calculator.defineOperator(button.textContent);
     calculator.updateDisplay();
   });
+})
+
+equalBtn.addEventListener("click", () => {
+  calculator.operate();
+  calculator.updateDisplay();
 })
 
 clearBtn.addEventListener("click", () => {
