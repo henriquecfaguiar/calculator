@@ -68,10 +68,11 @@ body {
 
 .calculator-grid {
   display: grid;
+  padding-left: .8rem;
   justify-content: center;
   align-content: center;
-  grid-template-columns: repeat(4, 5.5rem);
-  grid-template-rows: minmax(6.5rem, auto)repeat(5, 5.5rem);
+  grid-template-columns: repeat(4, 4.5rem);
+  grid-template-rows: minmax(5.5rem, auto)repeat(5, 4.5rem);
   margin-top: auto;
 }
 
@@ -132,4 +133,15 @@ footer {
 
 i {
   color: var(--clr-neutral-100);
+}
+
+@media(min-width:50em) {
+  .calculator-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(4, 5.5rem);
+    grid-template-rows: minmax(6.5rem, auto)repeat(5, 5.5rem);
+    margin-top: auto;
+  }
 }

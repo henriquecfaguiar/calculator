@@ -28,7 +28,7 @@ class Calculator {
       this.operate();
     }
     this.operation = operator;
-    this.previousOperand = this.currentOperand + operator;
+    this.previousOperand = `${this.currentOperand} ${operator}`;
     this.currentOperand = "";
   }
 
