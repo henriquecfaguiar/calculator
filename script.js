@@ -37,6 +37,14 @@ class Calculator {
     this.displayPrevious.textContent = this.previousOperand;
   }
 
+  roundLongDecimals(number) {
+    if (number.toString().split(".")[1].length > 4) {
+      this.currentOperand = Math.round(number * 10000) / 10000;
+    } else {
+      return;
+    }
+  }
+
   operate() {
     if (this.currentOperand === "") return;
     switch (this.operation) {
@@ -53,14 +61,20 @@ class Calculator {
         this.previousOperand = "";
         break;
       case "÷":
+        if (this.currentOperand == 0) {
+          alert("Error: division by zero.");
+          return;
+        }
         this.currentOperand = +this.previousOperand.toString().split("÷")[0] / +this.currentOperand;
         this.previousOperand = "";
         break;
       default:
         return;
     }
-  }
 
+    if (this.currentOperand.toString().includes(".")) this.roundLongDecimals(this.currentOperand);
+    return;
+  }
 }
 
 const numberBtns = document.querySelectorAll(".number");
