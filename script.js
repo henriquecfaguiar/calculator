@@ -115,3 +115,22 @@ deleteBtn.addEventListener("click", () => {
   calculator.delete();
   calculator.updateDisplay();
 })
+
+document.addEventListener("keyup", (e) => {
+  if (!isNaN(e.key) || e.key === ".") {
+    calculator.appendText(e.key);
+    calculator.updateDisplay();
+  } else if (e.key === "Backspace") {
+    calculator.delete();
+    calculator.updateDisplay();
+  } else if (e.key === "=" || e.key === "Enter") {
+    calculator.operate();
+    calculator.updateDisplay();
+  } else if (e.key === "+" || e.key === "-" || e.key === "/" || e.key === "*") {
+    if (e.key === "/") calculator.defineOperator("÷");
+    calculator.defineOperator(e.key);
+    calculator.updateDisplay();
+  } else {
+    return;
+  }
+})
