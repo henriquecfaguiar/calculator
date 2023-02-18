@@ -7,46 +7,70 @@
     <title>Calculator</title>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="./images/calculator-favicon.png"
+      type="image/x-icon"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap"
-      rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css" />
-    <script type="text/javascript" src="./script.js" defer></script>
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="text/javascript" src="./js/script.js" defer></script>
   </head>
 
   <body>
-    <div class="calculator-grid">
-      <div class="display">
-        <div class="display__previous"></div>
-        <div class="display__current"></div>
+    <!-- Global Container -->
+    <div
+      class="relative flex min-h-screen flex-col items-center justify-center bg-cyan-100 px-2"
+    >
+      <!-- Calculator Container -->
+      <div
+        class="grid grid-cols-[repeat(4,minmax(60px,80px))] gap-2 rounded-lg bg-gray-300 p-4 text-xl text-white shadow-md shadow-gray-500"
+      >
+        <div
+          class="display col-span-4 mb-2 flex min-h-[100px] flex-col items-end justify-between break-words break-all rounded-lg bg-emerald-100 p-2 text-right text-black"
+        >
+          <div class="display__previous text-2xl text-gray-500"></div>
+          <div class="display__current text-5xl"></div>
+        </div>
+        <button class="clear col-span-2">AC</button>
+        <button class="delete">DEL</button>
+        <button class="operator">÷</button>
+        <button class="number">1</button>
+        <button class="number">2</button>
+        <button class="number">3</button>
+        <button class="operator">*</button>
+        <button class="number">4</button>
+        <button class="number">5</button>
+        <button class="number">6</button>
+        <button class="operator">+</button>
+        <button class="number">7</button>
+        <button class="number">8</button>
+        <button class="number">9</button>
+        <button class="operator">-</button>
+        <button class="number">.</button>
+        <button class="number">0</button>
+        <button class="equal col-span-2">=</button>
       </div>
-      <button class="clear span-two">AC</button>
-      <button class="delete">DEL</button>
-      <button class="operator">÷</button>
-      <button class="number">1</button>
-      <button class="number">2</button>
-      <button class="number">3</button>
-      <button class="operator">*</button>
-      <button class="number">4</button>
-      <button class="number">5</button>
-      <button class="number">6</button>
-      <button class="operator">+</button>
-      <button class="number">7</button>
-      <button class="number">8</button>
-      <button class="number">9</button>
-      <button class="operator">-</button>
-      <button class="number">.</button>
-      <button class="number">0</button>
-      <button class="equal span-two">=</button>
+      <footer
+        class="absolute bottom-0 flex w-full items-center justify-center space-x-2 bg-gray-800 py-2 text-white"
+      >
+        <p class="text-sm md:text-lg">
+          Made with <span class="text-xl text-red-600">&#9829;</span> by
+          henriquecfaguiar
+        </p>
+        <a
+          href="https://github.com/henriquecfaguiar"
+          class="text-2xl duration-200 hover:opacity-50 md:text-3xl"
+          ><i class="fa fa-github"></i
+        ></a>
+      </footer>
     </div>
-    <footer>
-      <p>Copyright &#169; 2023 henriquecfaguiar</p>
-      <a href="https://github.com/henriquecfaguiar">
-        <i class="fa fa-github fa-lg"></i
-      ></a>
-    </footer>
   </body>
 </html>
