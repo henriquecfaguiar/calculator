@@ -703,6 +703,8 @@ video {
 .operator,
 .equal {
   border-radius: 0.5rem;
+  border-width: 2px;
+  border-color: transparent;
   --tw-bg-opacity: 1;
   background-color: rgb(248 113 113 / var(--tw-bg-opacity));
   padding: 0.75rem;
@@ -711,6 +713,11 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   --tw-shadow-color: #6b7280;
   --tw-shadow: var(--tw-shadow-colored);
+}
+
+.operator:hover,
+.equal:hover {
+  opacity: 0.9;
 }
 
 @media (min-width: 768px) {
@@ -722,6 +729,8 @@ video {
 
 .number {
   border-radius: 0.5rem;
+  border-width: 2px;
+  border-color: transparent;
   --tw-bg-opacity: 1;
   background-color: rgb(107 114 128 / var(--tw-bg-opacity));
   padding: 0.75rem;
@@ -730,6 +739,10 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   --tw-shadow-color: #6b7280;
   --tw-shadow: var(--tw-shadow-colored);
+}
+
+.number:hover {
+  opacity: 0.9;
 }
 
 @media (min-width: 768px) {
@@ -741,6 +754,8 @@ video {
 .delete,
 .clear {
   border-radius: 0.5rem;
+  border-width: 2px;
+  border-color: transparent;
   --tw-bg-opacity: 1;
   background-color: rgb(96 165 250 / var(--tw-bg-opacity));
   padding: 0.75rem;
@@ -751,11 +766,28 @@ video {
   --tw-shadow: var(--tw-shadow-colored);
 }
 
+.delete:hover,
+.clear:hover {
+  opacity: 0.9;
+}
+
 @media (min-width: 768px) {
   .delete,
 .clear {
     padding: 1rem;
   }
+}
+
+.operator:active,
+.equal:active,
+.number:active,
+.delete:active,
+.clear:active {
+  border-color: white;
+}
+
+.active {
+  border-color: white;
 }
 
 .hover\:opacity-50:hover {

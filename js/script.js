@@ -84,6 +84,7 @@ const clearBtn = document.querySelector(".clear");
 const operatorBtns = document.querySelectorAll(".operator");
 const equalBtn = document.querySelector(".equal");
 const deleteBtn = document.querySelector(".delete");
+const allBtns = document.querySelectorAll('button');
 
 const calculator = new Calculator(displayPrevious, displayCurrent);
 
@@ -133,4 +134,25 @@ document.addEventListener("keyup", (e) => {
   } else {
     return;
   }
+})
+
+// Active Effect on Keyboard
+document.addEventListener("keydown", (e) => {
+  allBtns.forEach(btn => {
+    if (btn.innerHTML === e.key) {
+      btn.classList.add('active');
+    } else if (e.key === 'Backspace') {
+      deleteBtn.classList.add('active');
+    }
+  })
+})
+
+document.addEventListener("keyup", (e) => {
+  allBtns.forEach(btn => {
+    if (btn.innerHTML === e.key) {
+      btn.classList.remove('active');
+    } else if (e.key === 'Backspace') {
+      deleteBtn.classList.remove('active');
+    }
+  })
 })
