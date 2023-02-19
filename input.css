@@ -4,16 +4,16 @@
 
 .operator,
 .equal {
-  @apply rounded-lg border-2 border-transparent bg-red-400 p-3 shadow-md shadow-gray-500 hover:opacity-90   md:p-4;
+  @apply rounded-lg border-2 border-transparent bg-red-400 py-4 px-2 shadow-md shadow-gray-500 hover:opacity-90;
 }
 
 .number {
-  @apply rounded-lg border-2 border-transparent bg-gray-500 p-3 shadow-md shadow-gray-500 hover:opacity-90   md:p-4;
+  @apply rounded-lg border-2 border-transparent bg-gray-500 py-4 px-2 shadow-md shadow-gray-500 hover:opacity-90;
 }
 
 .delete,
 .clear {
-  @apply rounded-lg border-2 border-transparent bg-blue-400 p-3 shadow-md shadow-gray-500 hover:opacity-90   md:p-4;
+  @apply rounded-lg border-2 border-transparent bg-blue-400 py-4 px-2 shadow-md shadow-gray-500 hover:opacity-90;
 }
 
 .operator:active,
